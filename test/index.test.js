@@ -38,7 +38,7 @@ describe('test/index.test.js', function() {
 
     // path dosen't exists
     it('should throw error: no this dir', function() {
-        return index.fetch(url, "./ppp").should.be.rejectedWith(Error, { message: 'ENOENT: no such file or directory, stat \'' + path.resolve('./', 'ppp') + '\'' });
+        return index.fetch(url, "./ppp").should.be.rejectedWith(Error);
     });
 
     // path is not a dir
