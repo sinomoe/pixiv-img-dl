@@ -1,9 +1,10 @@
 {
     "name": "pixiv-img-dl",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "simple way to download single image from pixiv",
     "main": "index.js",
     "scripts": {
+        "start": "node index.js",
         "test": "mocha test/index.test.js -t 30000"
     },
     "keywords": [
