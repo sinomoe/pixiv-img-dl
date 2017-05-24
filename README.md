@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/sino2322/pixiv-img-dl.svg?branch=master)](https://travis-ci.org/sino2322/pixiv-img-dl)
 
-[中文](./README.md)
+[中文](./README_ZH.md)
 
 a simple way to save pixiv images to local using nodejs
 
