@@ -18,5 +18,9 @@
     "devDependencies": {
         "mocha": "3.4.1",
         "should": "11.2.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sino2322/pixiv-img-dl.git"
     }
 }
