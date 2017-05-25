@@ -1,6 +1,6 @@
 {
     "name": "pixiv-img-dl",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "simple way to download single image from pixiv",
     "main": "index.js",
     "scripts": {
@@ -23,5 +23,6 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/sino2322/pixiv-img-dl.git"
-    }
+    },
+    "homepage": "https://github.com/sino2322/pixiv-img-dl#readme"
 }
