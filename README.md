@@ -44,6 +44,7 @@ pixiv
 ### fetchAll(imgUrls[, savePath])
 
 * imgUrls: a array of imgUrl.
+* in fact, it's just a wrapper of `Promise.all`
 * others is all the same with fetch.
 
 #### example
