@@ -49,8 +49,12 @@ function fetch(imgUrl, savePath) {
         request
             .get(imgUrl)
             .set('Referer', 'http://www.pixiv.net/')
+            .timeout({
+                response: 10000,
+                deadline: 60000
+            })
             .end((err, res) => {
-                if (err) reject(err);
+                if (err) reject({ undefined: imgUrl });
                 // save async
                 fs.writeFile(savePath, res.body, err => {
                     if (err) reject(err);
