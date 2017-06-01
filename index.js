@@ -7,20 +7,23 @@ const path = require('path');
 // savePath is a dir
 function fetch(imgUrl, savePath) {
     return new Promise((resolve, reject) => {
-        if ('string' !== typeof imgUrl) reject(new TypeError('wrong url'));
+        if ('string' !== typeof imgUrl)
+            return reject(new TypeError('wrong url'));
         const name = path.basename(imgUrl);
         // if set path
         if (savePath) {
-            if ('string' !== typeof savePath) reject(new TypeError('wrong path'));
+            if ('string' !== typeof savePath)
+                return reject(new TypeError('wrong path'));
             // is path a dir
             let stats;
             try {
                 stats = fs.statSync(savePath);
             } catch (e) {
-                reject(e);
+                return reject(e);
             }
 
-            if (!stats.isDirectory()) reject(new Error('path should be a directory'));
+            if (!stats.isDirectory())
+                return reject(new Error('path should be a directory'));
             // resolve file's absolute path
             savePath = path.resolve(savePath, name);
         } else {
@@ -33,7 +36,7 @@ function fetch(imgUrl, savePath) {
                 try {
                     fs.mkdirSync(savePath);
                 } catch (e) {
-                    reject(e);
+                    return reject(e);
                 }
             }
             // resolve file's absolute path
@@ -55,12 +58,12 @@ function fetch(imgUrl, savePath) {
             })
             .end((err, res) => {
                 if (err || typeof res === 'undefined')
-                    reject({ undefined: imgUrl });
+                    return reject({ undefined: imgUrl });
                 // save async
                 fs.writeFile(savePath, res.body, err => {
-                    if (err) reject(err);
+                    if (err) return reject(err);
                     // promise resolve
-                    resolve(ret);
+                    return resolve(ret);
                 });
             });
     });
