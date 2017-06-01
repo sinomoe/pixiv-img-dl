@@ -48,6 +48,6 @@ describe('test/index.test.js', function() {
 
     // request error
     it('should throw error: request error', function() {
-        return index.fetch(fake_url).should.be.rejectedWith(Error);
+        return index.fetch(fake_url).should.be.rejectedWith({ undefined: fake_url });
     });
 });
