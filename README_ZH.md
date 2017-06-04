@@ -16,7 +16,6 @@ npm i pixiv-img-dl --save
 ## 测试
 
 ```bash
-npm install --save-dev
 npm test
 ```
 
