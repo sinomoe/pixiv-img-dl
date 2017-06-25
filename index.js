@@ -11,7 +11,7 @@ const fsMkdirPromise = util.promisify(fs.mkdir);
 const fsWriteFilePromise = util.promisify(fs.writeFile);
 
 // savePath is a dir
-async function fetch(imgUrl, savePath = 'images') {
+async function fetch(imgUrl, savePath) {
     if ('string' !== typeof imgUrl)
         return Promise.reject(new TypeError('wrong url'));
     let name = path.basename(imgUrl);
@@ -32,6 +32,7 @@ async function fetch(imgUrl, savePath = 'images') {
         savePath = path.resolve(savePath, name);
     } else {
         // existed?
+        savePath = path.resolve('./images');
         try {
             await fsStatPromise(savePath);
         } catch (e) {
