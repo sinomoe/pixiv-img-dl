@@ -16,7 +16,7 @@ describe('test/index.test.js', function() {
 
     // fetchAll() true response
     it('should be [{name: "62711018_p0.png"},{name: "61002303_p0.jpg"}]', function() {
-        return index.fetchAll(list).should.be.eventually.match({
+        return index.fetchAll(list, 10).should.be.eventually.match({
             '0': function(it) {
                 return it.should.have.property('name', '62711018_p0.png');
             },

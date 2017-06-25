@@ -40,11 +40,10 @@ pixiv
   .catch(console.log);
 ```
 
-### fetchAll(imgUrls[, savePath])
+### fetchAll(imgUrls, concurrency[, savePath])
 
 * imgUrls: a array of imgUrl.
-* in fact, it's just a wrapper of `Promise.all`
-* others is all the same with fetch.
+* concurrency
 
 #### example
 
@@ -54,7 +53,7 @@ const urls = ['https://i.pximg.net/img-original/img/2017/05/01/23/42/02/62683748
  'https://i.pximg.net/img-original/img/2017/05/20/15/28/57/62982851_p0.png'];
 
 pixiv
-  .fetchAll(urls)
+  .fetchAll(urls, 10)
   .then(values => {
       console.log(value); // [{name: '62683748_p0.png'}, {name: '62982851_p0.png'}]
   })

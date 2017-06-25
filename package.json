@@ -1,6 +1,6 @@
 {
     "name": "pixiv-img-dl",
-    "version": "0.0.8",
+    "version": "0.1.0",
     "description": "simple way to download single image from pixiv",
     "main": "index.js",
     "scripts": {
@@ -14,9 +14,11 @@
     "author": "sino",
     "license": "MIT",
     "dependencies": {
+        "async": "2.4.1",
         "superagent": "3.5.2"
     },
     "devDependencies": {
+        "istanbul": "1.1.0-alpha.1",
         "mocha": "3.4.1",
         "should": "11.2.1"
     },

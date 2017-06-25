@@ -41,10 +41,10 @@ pixiv
   .catch(console.log);
 ```
 
-### fetchAll(imgUrls[, savePath])
+### fetchAll(imgUrls, concurrency[, savePath])
 
 * imgUrls: imgUrl 的数组。
-* 返回值: 其实这个函数就是用 Promise.all 对 promise 做了一个包装，参数形式如下例所示。
+* concurrency: 并发数控制
 * 其他的和上面一样。
 
 #### 示例
@@ -55,7 +55,7 @@ const urls = ['https://i.pximg.net/img-original/img/2017/05/01/23/42/02/62683748
  'https://i.pximg.net/img-original/img/2017/05/20/15/28/57/62982851_p0.png'];
 
 pixiv
-  .fetchAll(urls)
+  .fetchAll(urls, 10)
   .then(values => {
       console.log(value); // [{name: '62683748_p0.png'}, {name: '62982851_p0.png'}]
   })
