@@ -44,7 +44,7 @@ pixiv
 ### fetchAll(imgUrls, concurrency[, savePath])
 
 * imgUrls: imgUrl 的数组。
-* concurrency: 并发数控制
+* concurrencyQueue: 并发数控制队列，用于重试下载时并发控制。比如[10,5,2]，开始时并发数是10，如果有的失败了，第二次重试的并发量为2，如果还有失败，第三次的并发量为2，以此类推。
 * 其他的和上面一样。
 
 #### 示例

@@ -15,15 +15,8 @@ describe('test/index.test.js', function() {
     });
 
     // fetchAll() true response
-    it('should be [{name: "62711018_p0.png"},{name: "61002303_p0.jpg"}]', function() {
-        return index.fetchAll(list, 10).should.be.eventually.match({
-            '0': function(it) {
-                return it.should.have.property('name', '62711018_p0.png');
-            },
-            '1': function(it) {
-                return it.should.have.property('name', '61002303_p0.jpg');
-            }
-        })
+    it('fetchAll should be ok', function() {
+        return index.fetchAll(list, [5, 2]).should.be.fulfilled()
     });
 
     //url type error
@@ -48,6 +41,6 @@ describe('test/index.test.js', function() {
 
     // request error
     it('should throw error: request error', function() {
-        return index.fetch(fake_url).should.be.rejectedWith({ undefined: fake_url });
+        return index.fetch(fake_url).should.be.rejectedWith({ name: path.basename(fake_url), url: fake_url });
     });
 });

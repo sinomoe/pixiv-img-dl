@@ -40,10 +40,10 @@ pixiv
   .catch(console.log);
 ```
 
-### fetchAll(imgUrls, concurrency[, savePath])
+### fetchAll(imgUrls, concurrencyQueue[, savePath])
 
 * imgUrls: a array of imgUrl.
-* concurrency
+* concurrencyQueue: an array of concurrency, eg. [10,5,2], the first time, concurrency is 10, if someting failed, it will retry in concurrency 5, finally 2.
 
 #### example
 
@@ -53,10 +53,8 @@ const urls = ['https://i.pximg.net/img-original/img/2017/05/01/23/42/02/62683748
  'https://i.pximg.net/img-original/img/2017/05/20/15/28/57/62982851_p0.png'];
 
 pixiv
-  .fetchAll(urls, 10)
-  .then(values => {
-      console.log(value); // [{name: '62683748_p0.png'}, {name: '62982851_p0.png'}]
-  })
+  .fetchAll(urls, [5, 2])
+  .then(console.log) // undefined
   .catch(console.log);
 ```
 
